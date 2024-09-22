@@ -1,6 +1,6 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './App.css'
-import AppLayout from './layouts/app.layout.jsx'
+import AppLayout from './layouts/AppLayout.jsx'
 import LandingPage from './pages/LandingPage.jsx'
 import DashboardPage from './pages/DashboardPage.jsx'
 import AuthPage from './pages/AuthPage.jsx'
