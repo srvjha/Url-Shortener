@@ -15,7 +15,7 @@ import usefetch from '@/hooks/usefetch'
 import { getAllUrls } from '@/db/api.urls.js'
 import { getClicksForUrls } from '@/db/api.clicks.js'
 import LinkCard from '@/components/LinkCard'
-import CreateLink from '@/components/createLink'
+import CreateLink from '@/components/CreateLink'
 
 
 const DashboardPage = () => {
