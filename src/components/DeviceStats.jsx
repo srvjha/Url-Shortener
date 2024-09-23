@@ -8,7 +8,7 @@ const DeviceStats = ({stats}) => {
         if(!acc[item.device]){
             acc[item.device] = 0
         }
-        acc[item.device] ++;
+        acc[item.device]++;
         return acc
     },{});
 
@@ -17,7 +17,7 @@ const DeviceStats = ({stats}) => {
         count:deviceCount[device]
     }))
 
-    console.log({resultt})
+    console.log({result})
    const colors = [
     '#0088FE',
     '#FFBB33',
