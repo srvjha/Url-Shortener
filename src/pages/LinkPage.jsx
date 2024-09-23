@@ -38,9 +38,9 @@ const LinkPage = () => {
     anchor.click();
     document.body.removeChild(anchor);
   }
-  const { DEFAULT_SHORT_URL } = import.meta.env;
+  const { VITE_DEFAULT_SHORT_URL } = import.meta.env;
   const handleClipboard = ()=>{
-    const fullShortURL = `${DEFAULT_SHORT_URL}/${url?.short_url}`;
+    const fullShortURL = `${VITE_DEFAULT_SHORT_URL}/${url?.short_url}`;
     navigator.clipboard.writeText(fullShortURL);
     setIsCopy(true);
   }
@@ -100,7 +100,7 @@ const LinkPage = () => {
         target="_blank"
         className='text-3xl sm:text-4xl text-blue-400 font-bold hover:underline cursor-pointer'
         >
-         {DEFAULT_SHORT_URL}/{link}
+         {VITE_DEFAULT_SHORT_URL}/{link}
         
         </a>
         <a

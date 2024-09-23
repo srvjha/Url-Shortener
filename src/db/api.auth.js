@@ -1,7 +1,7 @@
 import supabase from "./supabase.js";
 import { supabaseUrl } from "./supabase.js";
 
-const { DEFAULT_SHORT_URL } = import.meta.env;
+const { VITE_DEFAULT_SHORT_URL } = import.meta.env;
 
 
 export async function login({email,password}) {
@@ -57,7 +57,7 @@ export async function googleAuth() {
     const { data, error } = await supabase.auth.signInWithOAuth({
         provider: 'google',
         options: {
-            redirectTo:`${DEFAULT_SHORT_URL}/dashboard?createNew=${url}`
+            redirectTo:`${VITE_DEFAULT_SHORT_URL}/dashboard?createNew=${url}`
         }
        
     }); 
