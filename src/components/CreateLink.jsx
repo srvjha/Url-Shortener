@@ -123,7 +123,7 @@ const CreateLink = () => {
             {errors.longUrl && <Error errMessage={errors.longUrl}/>}
            
            <div className=' flex items-center gap-2'>
-            <Card className="p-2">shortify.in</Card>/        
+            <Card className="p-2">shrnkit.vercel.app</Card>/        
             <Input
             id = "customUrl"
             placeholder="Custom Link (optional)" 
