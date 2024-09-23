@@ -8,32 +8,50 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 import { useNavigate } from 'react-router-dom';
+import { detectSpammedUrl } from '@/utils/spamCheckAI';
 
 
 const LandingPage = () => {
   const [longUrl,setLongUrl] =  useState();
+  const [isSpam, setIsSpam] = useState(false);
   const navigate = useNavigate();
-  const handleShorten = (e)=>{
-    e.preventDefault()
-    if(longUrl){
-      navigate(`/auth?createNewUrl=${longUrl}`)
+
+
+  const handleShorten = async (e) => {
+    e.preventDefault();
+    if (longUrl) {
+      const spammed = await detectSpammedUrl(longUrl);
+      if (spammed) {
+        setIsSpam(true);
+      } else {
+        setIsSpam(false);
+        navigate(`/auth?createNewUrl=${longUrl}`);
+      }
     }
-  }
+  };
+
   return (
     <div className="flex flex-col items-center">
       <h2 className="mx-10 my-10 sm:my-16 text-3xl sm:text-5xl lg:text-6xl text-white text-center font-extrabold">
       Your Ultimate URL Shortener—Quick, Simple, and Powerful! 👇
       </h2>
       
-      <form onSubmit={handleShorten} className="sm:h-14 flex flex-col sm:flex-row w-full sm:w-3/4 md:w-2/4 gap-4 sm:gap-2 px-4">
-        <Input 
-        className="w-full h-full sm:flex-1"
-        type="url"
-        value={longUrl}
-        onChange = {(e)=>setLongUrl(e.target.value)}
-        placeholder="Enter Your URL..." />
-        <Button className="w-full h-full sm:w-auto bg-blue-500 text-lg text-white" type="submit">Shorten!</Button>
-      </form>
+      {isSpam ? (
+         <div className='bg-red-500 text-white font-bold py-4 px-6 rounded-md shadow-lg'>Spam detected</div>
+       ) : (
+         <form onSubmit={handleShorten} className="sm:h-14 flex flex-col sm:flex-row w-full sm:w-3/4 md:w-2/4 gap-4 sm:gap-2 px-4">
+           <Input
+             className="w-full h-full sm:flex-1"
+             type="url"
+             value={longUrl}
+             onChange={(e) => setLongUrl(e.target.value)}
+             placeholder="Enter Your URL..."
+           />
+           <Button className="w-full h-full sm:w-auto bg-blue-500 text-lg text-white" type="submit">
+             Shorten!
+           </Button>
+         </form>
+       )}
       
       <img src="/bannerurl.webp" alt="banner" className="w-full my-8 sm:my-11 md:px-8 object-cover" />
       <Accordion type="multiple" collapsible className="w-full md:px-11">
