@@ -16,6 +16,8 @@ const DeviceStats = ({stats}) => {
         device,
         count:deviceCount[device]
     }))
+
+    console.log({resultt})
    const colors = [
     '#0088FE',
     '#FFBB33',

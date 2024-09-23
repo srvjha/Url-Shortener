@@ -1,10 +1,10 @@
 import React from 'react'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
-const LocationStats = ({stats}) => {
+const LocationStats = ({stats=[]}) => {
     const cityCount = stats.reduce((acc,item)=>{
           if(acc[item.city]){
-            acc[item.city]= 1
+            acc[item.city]+= 1
           }
           else{
             acc[item.city]= 1
@@ -16,6 +16,7 @@ const LocationStats = ({stats}) => {
     city:city,
     count:count
    }))
+   console.log({cities})
       
 
       return (
