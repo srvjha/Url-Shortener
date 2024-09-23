@@ -35,7 +35,7 @@ const LandingPage = () => {
         <Button className="w-full h-full sm:w-auto bg-blue-500 text-lg text-white" type="submit">Shorten!</Button>
       </form>
       
-      <img src="/banner.jpeg" alt="banner" className="w-full my-8 sm:my-11 md:px-8 object-cover" />
+      <img src="/bannerurl.webp" alt="banner" className="w-full my-8 sm:my-11 md:px-8 object-cover" />
       <Accordion type="multiple" collapsible className="w-full md:px-11">
         <AccordionItem value="item-1">
           <AccordionTrigger>
