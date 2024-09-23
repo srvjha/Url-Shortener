@@ -57,7 +57,7 @@ export async function googleAuth() {
     const { data, error } = await supabase.auth.signInWithOAuth({
         provider: 'google',
         options: {
-            redirectTo:`${DEFAULT_SHORT_URL}dashboard?createNew=${url}`
+            redirectTo:`${DEFAULT_SHORT_URL}/dashboard?createNew=${url}`
         }
        
     }); 

@@ -22,7 +22,7 @@ const LinkCard = ({url,fetchUrls}) => {
   
   const { DEFAULT_SHORT_URL } = import.meta.env;
   const handleClipboard = ()=>{
-    navigator.clipboard.writeText(`${DEFAULT_SHORT_URL}${url?.short_url}`);
+    navigator.clipboard.writeText(`${import.meta.env.DEFAULT_SHORT_URL}/${url?.short_url}`);
     setIsCopy(true);
   }
   if(isCopy){
@@ -45,7 +45,7 @@ const LinkCard = ({url,fetchUrls}) => {
       <Link to={`/link/${url?.id}`} className='flex flex-col flex-1'>
       <span className='text-3xl font-extrabold hover:underline cursor-pointer'>{url?.title}</span>
       <span className='text-2xl text-blue-400 font-bold hover:underline cursor-pointer'>
-        {DEFAULT_SHORT_URL}{url?.custom_url ? url?.custom_url : url?.short_url}
+        {DEFAULT_SHORT_URL}/{url?.custom_url ? url?.custom_url : url?.short_url}
       </span>
       <span className='flex items-center gap-1 hover:underline cursor-pointer'>{url?.original_url}</span>
       <span className='flex items-end text-gray-400 font-extralight text-sm flex-1'>{new Date(url?.created_at).toLocaleString()}</span>
