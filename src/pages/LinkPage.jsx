@@ -96,7 +96,7 @@ const LinkPage = () => {
       <div className='flex flex-col items-start gap-8 rounded-lg sm:w-2/5'>        
         <span className='text-6xl font-serif font-extrabold hover:underline cursor-pointer'>{url?.title}</span>
         <a 
-        href={`${DEFAULT_SHORT_URL}/${link}`} 
+        href={`${VITE_DEFAULT_SHORT_URL}/${link}`} 
         target="_blank"
         className='text-3xl sm:text-4xl text-blue-400 font-bold hover:underline cursor-pointer'
         >
