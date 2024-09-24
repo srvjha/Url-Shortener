@@ -1,6 +1,8 @@
 import supabase from "./supabase";
 import { supabaseUrl } from "./supabase";
 import {UAParser} from 'ua-parser-js'
+import DeviceDetector from 'device-detector-js';
+
 
 export async function getClicksForUrls(urlIds){
     console.log({urlIds})
@@ -16,14 +18,15 @@ export async function getClicksForUrls(urlIds){
     return data
 }
 
-const parser = new UAParser();
+// const parser = new UAParser();
 export const storeClicks = async({id,originalUrl})=>{
     try {
-       const res = parser.getResult();
-       console.log("Full UA Parser result:", res);
+      const deviceDetector = new DeviceDetector();
+      const result = deviceDetector.parse(window.navigator.userAgent);
+      console.log({result})
 
-       const device = res.device.type || res.browser.name || "desktop";
-       console.log("Detected Device: ",device)
+      const deviceType = result.device.type || "desktop"; // 'smartphone', 'tablet', 'desktop', 'smarttv', etc.
+      console.log("Detected device:", deviceType);
       
  
        const response = await fetch("https://ipapi.co/json");
