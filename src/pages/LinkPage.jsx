@@ -62,19 +62,22 @@ const LinkPage = () => {
    const{
     loading:loadingStats,
     data:stats,
-    error:errorStats,
     fn:fnStats
    } = usefetch(getClicksForUrl,id);
 
    //console.log({url})
 
-   const {loading:loadingDelete,fn:fnDelete} = usefetch(deleteUrls,id)
+   const {loading:loadingDelete,fn:deleteFunction} = usefetch(deleteUrls,id)
    
-   useEffect(()=>{
+   useEffect(() => {
     fn();
-    fnStats();
-    
-   },[]);
+  }, []);
+
+
+  useEffect(() => {
+    if (!error && loading === false) fnStats();
+  }, [loading, error]);
+
 
    if(error){
     navigate("/dashboard");
@@ -98,7 +101,7 @@ const LinkPage = () => {
         <a 
         href={`${VITE_DEFAULT_SHORT_URL}/${link}`} 
         target="_blank"
-        className='text-3xl sm:text-4xl text-blue-400 font-bold hover:underline cursor-pointer'
+        className='text-2xl sm:text-3xl text-blue-400 font-bold hover:underline cursor-pointer'
         >
          {VITE_DEFAULT_SHORT_URL}/{link}
         
@@ -135,7 +138,7 @@ const LinkPage = () => {
         </div>
 
         
-        <Card className='sm:w-3/5 bg-transparent border border-white'>
+        <Card className='sm:w-3/5 bg-transparent '>
           <CardHeader>
             <CardTitle  className="text-4xl font-extrabold">Stats</CardTitle>            
           </CardHeader>
