@@ -36,7 +36,7 @@ export const storeClicks = async({id,originalUrl})=>{
           url_id:id,
           city:city,
           country:country,
-          device:device
+          device:deviceType
        });
  
        window.location.href = originalUrl
