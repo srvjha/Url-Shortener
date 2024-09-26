@@ -101,7 +101,7 @@ const LinkPage = () => {
         <a 
         href={`${VITE_DEFAULT_SHORT_URL}/${link}`} 
         target="_blank"
-        className='text-2xl sm:text-3xl text-blue-400 font-bold hover:underline cursor-pointer'
+        className='text-xl sm:text-lg flex text-blue-400 font-bold hover:underline cursor-pointer'
         >
          {VITE_DEFAULT_SHORT_URL}/{link}
         
