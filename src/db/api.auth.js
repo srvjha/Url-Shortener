@@ -19,6 +19,7 @@ export async function getCurrentUserSessionDetails(){
     const {data:session,error } = await supabase.auth.getSession();
     if(!session.session) return null;
     if(error){
+        console.error(error)
         throw new Error(error.message)
     }
     return session.session?.user ;
