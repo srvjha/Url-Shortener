@@ -46,7 +46,7 @@ const DashboardPage = () => {
   return (
     <div className=' px-14 mt-2 flex flex-col gap-8 '>
       {loading || loadingClicks && <BarLoader width={"100%"} color='#36d7b7'/>}
-      <div className='grid grid-cols-2 gap-4 '>
+      <div className='grid sm:grid-cols-2 gap-4 '>
       <Card className="bg-gray-800 text-white">
         <CardHeader>
           <CardTitle>Links Created</CardTitle>         
@@ -66,9 +66,9 @@ const DashboardPage = () => {
       </Card>
       </div>
       
-      <div className='flex justify-between'>
-        <h1 className='text-4xl font-bold'>My Links</h1>
-        <CreateLink/>
+      <div className='grid gap-4  sm:grid-cols-2'>
+        <div className=''><h1 className='text-4xl font-bold'>Links</h1></div>
+        <div className=' sm:flex sm:items-end sm:justify-end'><CreateLink/></div>
       </div>
 
       <div className='relative'>

@@ -101,7 +101,7 @@ const LinkPage = () => {
         <a 
         href={`${VITE_DEFAULT_SHORT_URL}/${link}`} 
         target="_blank"
-        className='text-xl sm:text-lg flex text-blue-400 font-bold hover:underline cursor-pointer'
+        className='text-sm sm:text-lg flex text-blue-400 font-bold hover:underline cursor-pointer'
         >
          {VITE_DEFAULT_SHORT_URL}/{link}
         
@@ -109,7 +109,7 @@ const LinkPage = () => {
         <a
          href={url?.original_url} 
          target="_blank"
-         className='flex items-center gap-1 hover:underline cursor-pointer'
+         className='text-sm sm:text-lg  flex items-center gap-1 hover:underline cursor-pointer'
          >
            <LinkIcon className='p-1'/>
            {url?.original_url}
