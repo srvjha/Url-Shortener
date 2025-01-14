@@ -43,11 +43,13 @@ const LinkCard = ({url,fetchUrls}) => {
       
 
       <Link to={`/link/${url?.id}`} className='flex flex-col flex-1'>
-      <span className='text-3xl font-extrabold hover:underline cursor-pointer'>{url?.title}</span>
-      <span className='text-sm sm:text-2xl text-blue-400 font-bold hover:underline cursor-pointer'>
+      <span className='text-2xl sm:text-3xl font-extrabold hover:underline cursor-pointer break-all'>{url?.title}</span>
+      <span className='text-sm sm:text-2xl text-blue-400 font-bold hover:underline cursor-pointer break-all'>
         {VITE_DEFAULT_SHORT_URL}/{url?.custom_url ? url?.custom_url : url?.short_url}
       </span>
-      <span className='text-sm sm:text-2xl flex items-center gap-1 hover:underline cursor-pointer'>{url?.original_url}</span>
+      <span className='text-sm p-2 sm:text-2xl -ml-2 items-center gap-1 hover:underline cursor-pointer  flex break-all'>
+       {url?.original_url}
+      </span>
       <span className='flex items-end text-gray-400 font-extralight text-sm mt-1 flex-1'>{new Date(url?.created_at).toLocaleString()}</span>
       </Link>
 

@@ -97,11 +97,11 @@ const LinkPage = () => {
       )}
       <div className='flex flex-col bg-gray-900 mx-10 rounded-xl border border-gray-700   gap-8 sm:flex-row justify-between p-7'>
       <div className='flex flex-col items-start gap-8 rounded-lg sm:w-2/5'>        
-        <span className='text-6xl font-serif font-extrabold hover:underline cursor-pointer'>{url?.title}</span>
+        <span className='text-3xl sm:text-6xl font-serif font-extrabold hover:underline cursor-pointer'>{url?.title}</span>
         <a 
         href={`${VITE_DEFAULT_SHORT_URL}/${link}`} 
         target="_blank"
-        className='text-sm sm:text-lg flex text-blue-400 font-bold hover:underline cursor-pointer'
+        className='text-sm sm:text-lg flex text-blue-400 font-bold hover:underline cursor-pointer break-all'
         >
          {VITE_DEFAULT_SHORT_URL}/{link}
         
@@ -109,7 +109,7 @@ const LinkPage = () => {
         <a
          href={url?.original_url} 
          target="_blank"
-         className='text-sm sm:text-lg  flex items-center gap-1 hover:underline cursor-pointer'
+         className='text-sm sm:text-lg  flex items-center gap-1 hover:underline cursor-pointer break-all'
          >
            <LinkIcon className='p-1'/>
            {url?.original_url}
